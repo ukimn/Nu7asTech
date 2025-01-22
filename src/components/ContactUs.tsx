@@ -1,56 +1,80 @@
 import { useForm, ValidationError } from "@formspree/react";
-import Lottie from "react-lottie";
 import { FaHeadset } from "react-icons/fa";
-import success from "../assets/success.json";
 import message from "../assets/colored.json";
 import { useTheme } from "./Context";
+import { Player } from "@lottiefiles/react-lottie-player";
+import Sent from "./Sent";
 
 function ContactForm() {
   const [state, handleSubmit] = useForm("xanqwnwq");
-  const {theme} = useTheme();
+  const { theme } = useTheme();
+
+  if (state.succeeded) {
+    return (
+      <Sent/>
+    );
+  }
+
   return (
     <div className="main-body-contact" id="contact">
       <div className="body-contact">
-        <h1 className="contact-heading" style={{color: theme ? "black" : "#fff"}}>
-          {" "}
-          Get in <span>Touch</span> <FaHeadset />{" "}
+        {/* Header Section */}
+        <h1
+          className="contact-heading"
+          style={{ color: theme ? "black" : "#fff" }}
+        >
+          Get in <span>Touch</span> <FaHeadset />
         </h1>
         <span className="headline"></span>
+
+        {/* Contact Form */}
         <form onSubmit={handleSubmit} className="card-contact">
+          {/* Lottie Animation */}
           <div className="img">
-            <Lottie
-              options={{ animationData: message }}
+            <Player
+              src={message}
+              autoplay
+              loop
               style={{ width: "300px", height: "300px" }}
             />
           </div>
+
           <div className="content">
             <h1>Contact Form</h1>
+
+            {/* Email Input */}
             <input
               id="email"
               type="email"
               name="email"
               placeholder="Email Address"
+              required
             />
             <ValidationError
               prefix="Email"
               field="email"
               errors={state.errors}
             />
-            <textarea id="message" name="message" placeholder="Message" />
+
+            {/* Message Input */}
+            <textarea
+              id="message"
+              name="message"
+              placeholder="Write your message here..."
+              required
+            />
             <ValidationError
               prefix="Message"
               field="message"
               errors={state.errors}
             />
+
+            {/* Submit Button */}
             <button type="submit" disabled={state.submitting}>
               {state.submitting ? "Submitting..." : "Submit"}
             </button>
-            {state.succeeded && (
-              <Lottie
-                options={{ animationData: success }}
-                style={{ width: "150px", height: "150px" }}
-              />
-            )}
+
+            {/* Success Animation */}
           </div>
         </form>
       </div>
