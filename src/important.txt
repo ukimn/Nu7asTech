@@ -1,0 +1,12 @@
+APP STRUCTURE
+
+APP:
+    - Header
+    - mainBody
+    - Skills
+        - Card * 10
+    - Contact Us (on edit)
+
+انا بريء من الي كتب الملف ده 
+
+
