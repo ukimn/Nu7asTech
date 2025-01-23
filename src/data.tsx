@@ -15,6 +15,7 @@ interface DataInterface{
   id: number;
   imgPath: string;
   name: string;
+  type: "Programming" | "Design";
 }
 
 
@@ -22,62 +23,74 @@ export const Data: DataInterface[] = [
   {
     id: 1,
     imgPath: C,
-    name: "C"
+    name: "C",
+    type: "Programming"
   },
   {
     id: 2, 
     imgPath: figma,
-    name: "Figma"
+    name: "Figma",
+    type: "Design"
   },
   {
     id: 3,
     imgPath: css,
-    name: "CSS"
+    name: "CSS",
+    type: "Programming"
   },
   {
     id: 4,
     imgPath: html,
-    name: "HTML"
+    name: "HTML",
+    type: "Programming"
   },
   {
     id: 5,
     imgPath: js,
-    name: "Javascript"
+    name: "Javascript",
+    type: "Programming"
   },
   {
     id: 6,
     imgPath: typescript,
-    name: "Typescript"
+    name: "Typescript",
+    type: "Programming"
   },
   {
     id: 7,
     imgPath: sass,
-    name: "Sass"
+    name: "Sass",
+    type: "Programming"
   },
   {
     id: 8,
     imgPath: blender,
-    name: "Blender"
+    name: "Blender",
+    type: "Design"
   },
   {
     id: 9,
     imgPath: react, 
-    name: "React"
+    name: "React",
+    type: "Programming"
   },
   {
     id: 10,
     imgPath: illustrator,
-    name: "Illustrator"
+    name: "Illustrator",
+    type: "Design"
   },
   {
     id: 11, 
     imgPath: filmora,
-    name: "Filmora"
+    name: "Filmora",
+    type: "Design"
   },
   {
     id: 12, 
     imgPath: gimp,
-    name: "Gimp"
+    name: "Gimp", 
+    type: "Design"
   }
 
 ];
