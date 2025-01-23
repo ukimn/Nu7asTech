@@ -51,6 +51,7 @@ p {
   line-height: 1.5;
 }
 
+
 .temp {
   margin: 70px 120px;
   background-color: #191919;
@@ -295,6 +296,37 @@ header .button-container .button:hover {
 .heading-container:hover {
   transform: translateY(-5px);
 }
+
+.sort-button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(45deg, #ff7a18, #ff9411);
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
+  margin: 20px 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+  outline: none;
+}
+
+.sort-button svg{
+  vertical-align: middle;
+}
+
+.sort-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15), 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(45deg, #ff9411, #ff7a18);
+}
+
+.sort-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
 /* cards gallery end */
 
 /* Contact us start */

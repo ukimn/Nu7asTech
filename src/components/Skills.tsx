@@ -1,11 +1,15 @@
 import { Data } from "../data";
 import Card from "./Card";
 import { useState } from "react";
-const Skills = () => {
-  const [search, setSearch] = useState<string>("");
+import { FaFilter } from "react-icons/fa";
 
-  const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearch(e.target.value);
+const Skills = () => {
+  const [sort, setSort] = useState<number>(0);
+
+  const arrOfOptions = ["All", "Programming", "Design"];
+
+  const handleClick = () => {
+    setSort((prev) => (prev == arrOfOptions.length - 1 ? 0 : prev + 1));
   };
 
   return (
@@ -18,13 +22,16 @@ const Skills = () => {
         <div className="heading-container">
           <h1 className="heading">Skills</h1>
         </div>
-        <input type="text" value={search} onChange={handleInput} placeholder="search for a skill"/>
+        <button onClick={handleClick} className="sort-button">
+        {arrOfOptions[sort]} skills <FaFilter />
+        </button>
       </div>
       <div className="cards-gallery">
         {Data.filter((card) => {
-          return search.toLowerCase() === ""
-            ? card
-            : card.name.toLowerCase().includes(search);
+          return arrOfOptions[sort] === "Programming"
+            ? card.type.includes("Programming")
+            : card.type.includes("Design") ||
+                (arrOfOptions[sort] === "All" && card);
         }).map((card) => {
           return (
             <div key={card.id}>
