@@ -120,26 +120,43 @@ header ul li:hover {
   transform: scale(1.1);
 }
 
-header .button-container .button {
-  padding: 5px;
-  border: 4px solid #ff9411;
+header .button-container .button-mode {
+  padding: 10px;
   color: #000;
   background-color: #fffae8;
+  border: 2px dotted #e6e6e6;
+  border: none;
   margin: 0 20px;
-  border-radius: 10px;
+  border-radius: 50%;
   font-size: 1.2rem;
   font-weight: 400;
   cursor: pointer;
   transition: 0.3s ease;
 }
 
+header .button-container .button-mode svg{
+  vertical-align: middle;
+}
+
 header .button-container .start {
   background-color: #ff9411;
   color: #fff;
+  margin: 0 20px;
+  font-size: 1.2rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: 0.3s ease;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 1.2rem;
 }
 
-header .button-container .button:hover {
-  transform: scale(1.1);
+header .button-container .button-mode:hover {
+  transform: translateY(-5px);
+}
+
+header .button-container .button-mode:active{
+  transform: translateY(0);
 }
 
 /* Header end */

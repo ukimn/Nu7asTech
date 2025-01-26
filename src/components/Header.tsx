@@ -1,5 +1,8 @@
 import { useTheme } from "./Context";
 import { useState } from "react";
+import { IoIosMoon } from "react-icons/io";
+import { IoSunnyOutline } from "react-icons/io5";
+
 const Header = () => {
   const { theme, setTheme } = useTheme();
   const [isOpened, setIsOpened] = useState<boolean>(false);
@@ -38,13 +41,13 @@ const Header = () => {
         </ul>
         <div className="button-container">
           <button
-            className="button"
+            className="button-mode"
             onClick={() => {
               setTheme((prev) => !prev);
             }}
             id={`${theme ? "dark" : "white"}`}
           >
-            {theme ? "Dark Mode" : "Light Mode"}
+            {theme ? <IoIosMoon size={30}/> : <IoSunnyOutline size={30}/>}
           </button>
           <a className="button start" href="#contact">
             Start
