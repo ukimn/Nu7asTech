@@ -1,10 +1,28 @@
 import { Data } from "../data";
 import Card from "./Card";
-import { useReducer } from "react";
+import { useReducer, useState, useEffect } from "react";
 import { FaFilter } from "react-icons/fa";
 
 const Skills = () => {
+  const [showMore, setShowMore] = useState<boolean>(false);
+  const [isIphone, setIsIphone] = useState<boolean>(false);
+
   const initValue = { count: 0 };
+
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 768px)"); // Define phone breakpoint
+    const handleResize = () => setIsIphone(mediaQuery.matches);
+
+    // Set initial value
+    handleResize();
+
+    // Add listener for resize
+    mediaQuery.addEventListener("change", handleResize);
+
+    // Cleanup on unmount
+    return () => mediaQuery.removeEventListener("change", handleResize);
+  }, []);
 
   interface Action {
     type: "Increment";
@@ -36,7 +54,12 @@ const Skills = () => {
         <div className="heading-container">
           <h1 className="heading">Skills</h1>
         </div>
-        <button onClick={()=>{dispatch({type: "Increment"})}} className="sort-button">
+        <button
+          onClick={() => {
+            dispatch({ type: "Increment" });
+          }}
+          className="sort-button"
+        >
           {arrOfOptions[sort.count]} skills <FaFilter />
         </button>
       </div>
@@ -46,14 +69,25 @@ const Skills = () => {
             ? card.type.includes("Programming")
             : card.type.includes("Design") ||
                 (arrOfOptions[sort.count] === "All" && card);
-        }).map((card) => {
-          return (
-            <div key={card.id}>
-              <Card imgUrl={card.imgPath} name={card.name} />
-            </div>
-          );
-        })}
+        })
+          .slice(0, isIphone ? (showMore ? Data.length : 4) : Data.length)
+          .map((card) => {
+            return (
+              <div key={card.id}>
+                <Card imgUrl={card.imgPath} name={card.name} />
+              </div>
+            );
+          })}
       </div>
+      <a
+        className="show-more"
+        onClick={() => {
+          setShowMore((prev) => !prev);
+        }}
+        style={{visibility: isIphone ? "visible" : "hidden"}}
+      >
+        Show {showMore ? "less" : "more"}
+      </a>
     </>
   );
 };

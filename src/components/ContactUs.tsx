@@ -10,9 +10,7 @@ function ContactForm() {
   const { theme } = useTheme();
 
   if (state.succeeded) {
-    return (
-      <Sent/>
-    );
+    return <Sent />;
   }
 
   return (
@@ -21,7 +19,7 @@ function ContactForm() {
         {/* Header Section */}
         <h1
           className="contact-heading"
-          style={{ color: theme ? "black" : "#fff" }}
+          id={`${theme ? "light-mode-color" : "dark-mode-color"}`}
         >
           Get in <span>Touch</span> <FaHeadset />
         </h1>
@@ -30,19 +28,19 @@ function ContactForm() {
         {/* Contact Form */}
         <form onSubmit={handleSubmit} className="card-contact">
           {/* Lottie Animation */}
-          <div className="img">
+          <div>
             <Player
               src={message}
               autoplay
               loop
               style={{ width: "300px", height: "300px" }}
-            />
+              className="img"
+              />
           </div>
 
           <div className="content">
-            <h1>Contact Form</h1>
-
             {/* Email Input */}
+              <h1>Contact Form</h1>
             <input
               id="email"
               type="email"

@@ -7,7 +7,7 @@ import { useTheme } from "./components/Context"
 const App = () => {
   const {theme} = useTheme();
   return (
-    <div className="temp" style={{backgroundColor: theme ? "#FFFAE8" : "#191919"}}>
+    <div className="temp" id={`${theme ? "white" : "dark"}`}>
         <Header/>
         <MainBody/>
         <Skills/>

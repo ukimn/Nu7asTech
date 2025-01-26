@@ -6,6 +6,26 @@
   padding: 0;
 }
 
+
+
+#dark{
+  background-color: #191919;
+  color: #fff;
+}
+
+#white{
+  background-color: #FFFAE8;
+  color: #000;
+}
+
+#dark-mode-color{
+  color: #fff;
+}
+
+#light-mode-color{
+  color: #000;
+}
+
 ::-webkit-scrollbar {
   width: 8px; /* Thin vertical scrollbar */
   height: 8px; /* Thin horizontal scrollbar */
@@ -36,7 +56,7 @@ body {
   background-color: wheat;
   scrollbar-width: thin; /* Thin scrollbar */
   scrollbar-color: #ff7518 #f4f1e9;
-  overflow-x: hidden;
+  overflow-x: none;
 }
 
 a {
@@ -269,6 +289,13 @@ header .button-container .button:hover {
   display: grid;
   grid-template-columns: auto auto auto auto;
   grid-gap: 20px;
+}
+
+.show-more{
+  text-decoration: underline;
+  color: #ff9411;
+  cursor: pointer;
+  margin: 0 0 0 10px;
 }
 
 .main-gallery-container {
@@ -513,210 +540,193 @@ header .button-container .button:hover {
 
 /* Media Queries start */
 
-/* General Responsive Adjustments */
-/* Media Queries for Responsive Design */
-
-/* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (max-width: 1200px) {
-  .temp {
-    margin: 40px 60px;
-  }
-
-  .cards-gallery {
-    grid-template-columns: auto auto auto;
-  }
+.hamburger{
+  cursor: pointer;
 }
 
-/* Large devices (laptops/desktops, 992px and down) */
-@media only screen and (max-width: 992px) {
-  .temp {
-    margin: 20px 30px;
-  }
-
-  header .logo {
-    font-size: 3rem;
-  }
-
-  header ul li {
-    font-size: 1.4rem;
-  }
-
-  .main-body {
-    flex-direction: column;
-    text-align: center;
-    gap: 30px;
-  }
-
-  .main-body .paragraph-container {
-    width: 80%;
-    max-width: 500px;
-  }
-
-  .cards-gallery {
-    grid-template-columns: auto auto;
-    padding: 0 20px;
-  }
-
-  .main-body-contact {
-    flex-direction: column;
-    padding: 0 20px;
-  }
-
-  .body-contact .contact-heading {
-    font-size: 2.5rem;
-    text-align: center;
-  }
-
-  .body-contact .headline {
-    width: 100%;
-  }
+.ham{
+  cursor: pointer;
 }
 
-/* Medium devices (tablets, 768px and down) */
-@media only screen and (max-width: 768px) {
-  header .navbar {
-    flex-direction: column;
-    gap: 20px;
-  }
+.hamburger .line {
+  height: 2px;
+  width: 25px;
+  background-color: #fff;
+  margin: 5px 0;
+  transition: all 0.5s ease;
+}
 
-  header ul {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
+.hamburger.open :nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
 
-  header .button-container {
+.hamburger.open :nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open :nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.ham {
+  display: none;
+}
+
+
+@media (max-width: 768px){
+
+  body{
+    background-color: #191919;
     display: flex;
-    justify-content: center;
-    gap: 10px;
+    flex-direction: column;
+    align-items: center;
   }
 
-  header .button-container .button {
+  .navbar .logo{
+    font-size: 2rem;
+    margin: 0 10px;
+  }
+
+  .temp{
     margin: 0;
-    padding: 8px 15px;
-  }
-
-  .main-body .paragraph-container .paragraph {
-    font-size: 1.3rem;
-  }
-
-  .image-container img {
-    width: 250px;
-  }
-
-  .cards-gallery {
-    grid-template-columns: auto;
-    max-width: 400px;
-    margin: 0 auto;
-  }
-
-  .body-contact .card-contact {
-    padding: 20px;
-  }
-
-  .body-contact .card-contact .content {
-    margin: 0;
-  }
-
-  .body-contact .card-contact h1 {
-    font-size: 2.5rem;
-    text-align: center;
-  }
-
-  .body-contact .card-contact button {
     width: 100%;
   }
-}
 
-/* Small devices (phones, 576px and down) */
-@media only screen and (max-width: 576px) {
-  .temp {
-    margin: 0;
+  .start{
+    display: none;
   }
 
-  header .logo {
-    font-size: 2.5rem;
+  .ham {
+    display: block;
   }
 
-  header ul li {
+  .hamburger {
+    display: block;
+  }
+
+  header{
+    position: sticky;
+  }
+
+  .navbar .words-navbar {
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 110px;
+    flex-direction: column;
+    background-color: darkslategrey;
+    padding: 1rem 2rem;
+    opacity: 0;
+    z-index: 200;
+  }
+
+  .navbar .open{
+    opacity: 1;
+    transition: 0.4s ease;
+  }
+
+  .navbar .words-navbar .items {
+    border-bottom: 2px solid #fff;
+  }
+
+  .main-body .paragraph{
+    font-size: 0.8rem;
+  }
+
+  .main-body{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .main-body .paragraph{
     font-size: 1.2rem;
+    margin-bottom: 20px;
   }
 
-  .main-body .paragraph-container {
-    width: 90%;
+  .main-body .image-container img{
+    display: block;
+    height: 300px;
   }
 
-  .main-body .paragraph-container .paragraph {
-    font-size: 1.2rem;
+  .cards-gallery{
+    display: grid;
+    grid-template-columns: auto;
+    place-items: center;
   }
 
-  .image-container img {
+  .card{
+    width: 300px;
+    height: 200px;
+  }
+
+  .body-contact{
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+  }
+
+  .body-contact .headline{
     width: 200px;
   }
 
-  .card h2 {
-    font-size: 1.5rem;
-  }
-
-  .card p {
-    font-size: 0.9rem;
-  }
-
-  .body-contact .card-contact{
-    display: flex;
-    flex-direction: column;
-  }
-
-  .body-contact .contact-heading {
-    font-size: 1.4rem;
-  }
-
-  .body-contact .card-contact {
-    padding: 5px;
-    width: 300px;
-  }
-
-  .body-contact .card-contact h1{
-    font-size: 1.2rem;
-  }
-
-  .body-contact .card-contact input,
-  .body-contact .card-contact textarea {
-    padding: 4px;
-    font-size: 14px;
-  }
-
-  .body-contact .card-contact button{
-    width: 100px;
-  }
-
-  .body-contact .card-contact .img{
-    width: 50px;
-  }
-
-
-}
-
-/* Extra small devices (small phones, 375px and down) */
-@media only screen and (max-width: 375px) {
-  header .logo {
+  .body-contact .contact-heading{
     font-size: 2rem;
   }
 
-  header ul li {
-    font-size: 1rem;
+  .body-contact .card-contact{
+    padding: 0 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
   }
 
-  .button-container .button {
-    font-size: 1rem;
+
+
+  .show-more{
+    text-align: center;
   }
 
-  .main-body .paragraph-container .paragraph {
-    font-size: 1.1rem;
+  .card-contact .img{
+    height: 150px;
+    width: 150px;
   }
 
-  .image-container img {
-    width: 180px;
+}
+
+@media (min-width: 850px) and (max-width: 1000px){
+  .cards-gallery{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    place-items: center;
+  }
+
+  .temp{
+    margin: 0;
+  }
+
+}
+
+@media (min-width: 820px) and (max-width: 1024px){
+  .temp{
+    margin: 0;
+  }
+
+  .cards-gallery{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    place-items: center;
+  }
+
+}
+
+@media (min-width: 900px) and (max-width: 1000px){
+  .cards-gallery{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    place-items: center;
   }
 }
+
 
 /* Media Queries end */
