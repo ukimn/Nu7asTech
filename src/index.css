@@ -54,7 +54,7 @@ body {
   background-color: wheat;
   scrollbar-width: thin; /* Thin scrollbar */
   scrollbar-color: #ff7518 #f4f1e9;
-  overflow-x: none;
+  overflow-x: hidden;
 }
 
 a {
@@ -694,7 +694,7 @@ header .button-container .button-mode:active {
     position: absolute;
     right: 0;
     left: 0;
-    top: 110px;
+    top: 90px;
     flex-direction: column;
     background-color: darkslategrey;
     padding: 1rem 2rem;
