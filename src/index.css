@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playwrite+AU+VIC+Guides&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Silkscreen:wght@400;700&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&family=Zain:wght@200;300;400;700;800;900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playwrite+AU+VIC+Guides&family=Playwrite+US+Trad:wght@100..400&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Silkscreen:wght@400;700&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&family=Zain:wght@200;300;400;700;800;900&display=swap");
 
 * {
   margin: 0;
@@ -136,17 +135,17 @@ header .button-container .button-mode svg {
 }
 
 header .button-container .start {
+  display: inline-block; /* Add this */
   background-color: #ff9411;
   color: #fff;
   margin: 0 20px;
   font-size: 1.2rem;
   font-weight: 400;
   cursor: pointer;
-  transition: 0.3s ease;
   border-radius: 10px;
   padding: 10px;
-  font-size: 1.2rem;
 }
+
 
 header .button-container .button-mode:hover {
   transform: translateY(-5px);

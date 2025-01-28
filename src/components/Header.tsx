@@ -52,9 +52,14 @@ const Header = () => {
             >
               {theme ? <IoIosMoon size={30} /> : <IoSunnyOutline size={30} />}
             </button>
-            <a className="button start" href="#contact">
+            <motion.a
+              className="button start"
+              href="#contact"
+              transition={{ type: "spring", stiffness: 500 }}
+              whileHover={{ scale: 1.3 }}
+            >
               Start
-            </a>
+            </motion.a>
           </div>
           <div
             className={`ham ${isOpened ? "open" : ""}`}
