@@ -180,6 +180,7 @@ header .button-container .button-mode:active {
   color: #ffcb71;
 }
 
+
 .main-body .paragraph-container .paragraph span {
   font-weight: 900;
 }
@@ -212,6 +213,13 @@ header .button-container .button-mode:active {
 .main-body .image-container .img {
   border-radius: 10px;
   margin-bottom: 30px;
+}
+
+.paragraph-sub{
+  color: #fff;
+  font-weight: 400;
+  font-size:1.3rem;
+  line-height: 1.8;
 }
 
 /* body end */
@@ -661,6 +669,14 @@ header .button-container .button-mode:active {
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+  header .button-container .start{
+    display: none;
+  }
+
+  .coding-video{
+    height: 300px;
+    width: 300px;
   }
 
   .navbar .logo {
