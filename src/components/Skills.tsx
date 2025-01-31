@@ -65,13 +65,13 @@ const Skills = () => {
             );
           })}
       </div>
-      <a
+      <button
         className="show-more"
         onClick={toggleShowMore}
         style={{ visibility: isIphone ? "visible" : "hidden" }}
       >
         Show {showMore ? "less" : "more"}
-      </a>
+      </button>
     </>
   );
 };

@@ -308,6 +308,8 @@ header .button-container .button-mode:active {
   color: #ff9411;
   cursor: pointer;
   margin: 0 0 0 10px;
+  border: none;
+  background: none;
 }
 
 .main-gallery-container {
