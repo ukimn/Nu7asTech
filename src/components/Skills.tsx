@@ -22,7 +22,7 @@ const Skills = () => {
     return () => mediaQuery.removeEventListener("change", handleResize);
   }, []);
 
-  const arrOfOptions = ["All", "Programming", "Design"];
+  const arrOfOptions = useMemo(() => ["All", "Programming", "Design"], []);
 
   const [sort, setSort] = useState<number>(0);
 
