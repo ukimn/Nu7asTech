@@ -1,6 +1,6 @@
 import { Data } from "../data";
 import Card from "./Card";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo, useCallback } from "react";
 import { FaFilter } from "react-icons/fa";
 
 const Skills = () => {
@@ -24,7 +24,23 @@ const Skills = () => {
 
   const arrOfOptions = ["All", "Programming", "Design"];
 
-  const [sort, setSort] = useState<number>(0)
+  const [sort, setSort] = useState<number>(0);
+
+  const filteredData = useMemo(() => {
+    return Data.filter((card) => {
+      if (arrOfOptions[sort] === "Programming") return card.type.includes("Programming");
+      if (arrOfOptions[sort] === "Design") return card.type.includes("Design");
+      return true; // "All" case
+    });
+  }, [sort, arrOfOptions]);
+
+  const toggleSort = useCallback(()=>{
+    setSort((prev) => (prev === 2 ? 0 : prev + 1));
+  }, []);
+
+  const toggleShowMore = useCallback(()=>{
+    setShowMore((prev)=>!prev);
+  }, []);
 
   return (
     <>
@@ -37,21 +53,14 @@ const Skills = () => {
           <h1 className="heading">Skills</h1>
         </div>
         <button
-          onClick={() => {
-            setSort((prev)=> prev === 2 ? 0 : prev + 1);
-          }}
+          onClick={toggleSort}
           className="sort-button"
         >
           {arrOfOptions[sort]} skills <FaFilter />
         </button>
       </div>
       <div className="cards-gallery">
-        {Data.filter((card) => {
-          return arrOfOptions[sort] === "Programming"
-            ? card.type.includes("Programming")
-            : card.type.includes("Design") ||
-                (arrOfOptions[sort] === "All" && card);
-        })
+        {filteredData
           .slice(0, isIphone ? (showMore ? Data.length : 3) : Data.length)
           .map((card) => {
             return (
@@ -63,9 +72,7 @@ const Skills = () => {
       </div>
       <a
         className="show-more"
-        onClick={() => {
-          setShowMore((prev) => !prev);
-        }}
+        onClick={toggleShowMore}
         style={{visibility: isIphone ? "visible" : "hidden"}}
       >
         Show {showMore ? "less" : "more"}

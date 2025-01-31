@@ -532,12 +532,10 @@ header .button-container .button-mode:active {
   line-height: 1.6;
   letter-spacing: 3px;
   text-align: center;
-  color: #ffcb71;
+  color: #fff;
   text-transform: uppercase;
   font-family: "Zain", serif;
-  z-index: 1;
-  background: linear-gradient(90deg, #ff7518, #ffcb71);
-  -webkit-text-fill-color: transparent;
+  z-index: 100000;
   margin: 0;
   padding: 10px;
   transition: transform 0.3s ease, opacity 0.3s ease;
