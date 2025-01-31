@@ -49,6 +49,7 @@ const Header = () => {
               className="button-mode"
               onClick={() => setTheme((prev) => !prev)}
               id={`${theme ? "dark" : "white"}`}
+              name="theme"
             >
               {theme ? <IoIosMoon size={30} /> : <IoSunnyOutline size={30} />}
             </button>
