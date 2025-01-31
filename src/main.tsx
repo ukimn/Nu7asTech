@@ -1,10 +1,12 @@
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.tsx";
-import { ThemeProvider } from "./components/Context.tsx";
 import Projects from "./Projects.tsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Error from "./elementError/Error.tsx";
+import { store } from './Store/store.ts'
+import { Provider } from 'react-redux';
+
 
 const root = createBrowserRouter([
   {
@@ -19,7 +21,7 @@ const root = createBrowserRouter([
 ])
 
 createRoot(document.getElementById("root")!).render(
-  <ThemeProvider>
-    <RouterProvider router={root}/>
-  </ThemeProvider>
+  <Provider store={store}>
+    <RouterProvider router={root}></RouterProvider>
+  </Provider>
 );

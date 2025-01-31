@@ -1,12 +1,14 @@
-import { useTheme } from "./Context";
 import { useState } from "react";
 import { IoIosMoon } from "react-icons/io";
 import { IoSunnyOutline } from "react-icons/io5";
 import { motion } from "framer-motion";
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleTheme } from "../Store/store";
 
 const Header = () => {
-  const { theme, setTheme } = useTheme();
   const [isOpened, setIsOpened] = useState<boolean>(false);
+  const dispatch = useDispatch();
+  const theme = useSelector((state: {theme: boolean}) => state.theme);
   return (
     <>
       <header id={`${theme ? "white" : "dark"}`}>
@@ -47,7 +49,7 @@ const Header = () => {
           <div className="button-container">
             <button
               className="button-mode"
-              onClick={() => setTheme((prev) => !prev)}
+              onClick={() => dispatch(toggleTheme())}
               id={`${theme ? "dark" : "white"}`}
               name="theme"
               aria-label={
@@ -82,7 +84,7 @@ interface HamburgerProps {
 }
 
 function Hamburger({ isOpened }: HamburgerProps) {
-  const { theme } = useTheme();
+  const theme = useSelector((state: { theme: boolean }) => state.theme);
   return (
     <div className={`hamburger ${isOpened ? "open" : ""}`}>
       <div className="line" id={`${theme ? "dark" : "white"}`}></div>

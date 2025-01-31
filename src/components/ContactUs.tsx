@@ -1,13 +1,13 @@
 import { useForm, ValidationError } from "@formspree/react";
 import { FaHeadset } from "react-icons/fa";
 import message from "../assets/colored.json";
-import { useTheme } from "./Context";
 import { Player } from "@lottiefiles/react-lottie-player";
 import Sent from "./Sent";
+import { useSelector } from "react-redux";
 
 function ContactForm() {
   const [state, handleSubmit] = useForm("xanqwnwq");
-  const { theme } = useTheme();
+  const theme = useSelector((state: { theme: boolean}  ) => state.theme);
 
   if (state.succeeded) {
     return <Sent />;
