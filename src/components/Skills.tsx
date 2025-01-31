@@ -1,13 +1,11 @@
 import { Data } from "../data";
 import Card from "./Card";
-import { useReducer, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { FaFilter } from "react-icons/fa";
 
 const Skills = () => {
   const [showMore, setShowMore] = useState<boolean>(false);
   const [isIphone, setIsIphone] = useState<boolean>(false);
-
-  const initValue = { count: 0 };
 
 
   useEffect(() => {
@@ -24,25 +22,9 @@ const Skills = () => {
     return () => mediaQuery.removeEventListener("change", handleResize);
   }, []);
 
-  interface Action {
-    type: "Increment";
-  }
   const arrOfOptions = ["All", "Programming", "Design"];
 
-  function reducer(state: typeof initValue, action: Action) {
-    const { type } = action;
-    switch (type) {
-      case "Increment":
-        return {
-          ...state,
-          count: state.count == arrOfOptions.length - 1 ? 0 : state.count + 1,
-        };
-      default:
-        return state;
-    }
-  }
-
-  const [sort, dispatch] = useReducer(reducer, initValue);
+  const [sort, setSort] = useState<number>(0)
 
   return (
     <>
@@ -56,21 +38,21 @@ const Skills = () => {
         </div>
         <button
           onClick={() => {
-            dispatch({ type: "Increment" });
+            setSort((prev)=> prev === 2 ? 0 : prev + 1);
           }}
           className="sort-button"
         >
-          {arrOfOptions[sort.count]} skills <FaFilter />
+          {arrOfOptions[sort]} skills <FaFilter />
         </button>
       </div>
       <div className="cards-gallery">
         {Data.filter((card) => {
-          return arrOfOptions[sort.count] === "Programming"
+          return arrOfOptions[sort] === "Programming"
             ? card.type.includes("Programming")
             : card.type.includes("Design") ||
-                (arrOfOptions[sort.count] === "All" && card);
+                (arrOfOptions[sort] === "All" && card);
         })
-          .slice(0, isIphone ? (showMore ? Data.length : 4) : Data.length)
+          .slice(0, isIphone ? (showMore ? Data.length : 3) : Data.length)
           .map((card) => {
             return (
               <div key={card.id}>
