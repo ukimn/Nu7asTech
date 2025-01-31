@@ -50,6 +50,9 @@ const Header = () => {
               onClick={() => setTheme((prev) => !prev)}
               id={`${theme ? "dark" : "white"}`}
               name="theme"
+              aria-label={
+                theme ? "Switch to light mode" : "Switch to dark mode"
+              } // ✅ Accessibility fix
             >
               {theme ? <IoIosMoon size={30} /> : <IoSunnyOutline size={30} />}
             </button>
@@ -57,12 +60,7 @@ const Header = () => {
               className="button start"
               href="#contact"
               transition={{ type: "spring", stiffness: 500 }}
-              whileHover={{ scale: 1.3 }}
-              style={{
-                backgroundColor: "#FFC107", // Deep yellow
-                color: "#FFFFFF", // White text
-                textShadow: "1px 1px 2px rgba(0, 0, 0, 0.5)", // Shadow for better readability // Dark golden border for contrast
-              }}
+              whileHover={{ scale: 1.3, backgroundColor: "#D4A400" }} // Darker yellow on hover
             >
               Start
             </motion.a>
