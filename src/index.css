@@ -281,7 +281,6 @@ header .button-container .button-mode:active {
   font-size: 1.8rem; /* Larger heading */
   margin-bottom: 10px;
   background: linear-gradient(90deg, #ff007f, #007bff);
-  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent; /* Gradient text effect */
 }
 
@@ -538,7 +537,6 @@ header .button-container .button-mode:active {
   font-family: "Zain", serif;
   z-index: 1;
   background: linear-gradient(90deg, #ff7518, #ffcb71);
-  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin: 0;
   padding: 10px;
