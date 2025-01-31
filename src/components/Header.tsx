@@ -58,6 +58,11 @@ const Header = () => {
               href="#contact"
               transition={{ type: "spring", stiffness: 500 }}
               whileHover={{ scale: 1.3 }}
+              style={{
+                backgroundColor: "#FFC107", // Deep yellow
+                color: "#FFFFFF", // White text
+                textShadow: "1px 1px 2px rgba(0, 0, 0, 0.5)", // Shadow for better readability // Dark golden border for contrast
+              }}
             >
               Start
             </motion.a>
