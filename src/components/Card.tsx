@@ -1,4 +1,4 @@
-import { useCallback, memo } from "react";
+import { useCallback } from "react";
 import { useShow } from "../customHooks/useShow";
 
 interface CardProps {
@@ -9,23 +9,16 @@ interface CardProps {
 const Card = ({ imgUrl, name }: CardProps) => {
   const { showTitle, setShowTitle } = useShow();
 
-  // Memoized event handlers to prevent unnecessary re-renders
   const handlePointerOver = useCallback(() => setShowTitle(true), [setShowTitle]);
   const handlePointerOut = useCallback(() => setShowTitle(false), [setShowTitle]);
 
   return (
     <div className="card" onPointerOver={handlePointerOver} onPointerOut={handlePointerOut}>
-      {/* Optimized image handling for LCP */}
-      <img
-        src={imgUrl}
-        alt="card"
-        height="150"
-        width="150"
-        loading="lazy"
-      />
+      {/* Removed lazy loading for LCP image */}
+      <img src={imgUrl} alt="card" height="150" width="150" />
       <h1
         style={{ visibility: showTitle ? "visible" : "hidden", color: "black" }}
-        aria-hidden={!showTitle} // Improves accessibility
+        aria-hidden={!showTitle}
       >
         {name}
       </h1>
@@ -33,5 +26,4 @@ const Card = ({ imgUrl, name }: CardProps) => {
   );
 };
 
-// Prevents unnecessary re-renders if props don't change
-export default memo(Card);
+export default Card; // Removed memo()
