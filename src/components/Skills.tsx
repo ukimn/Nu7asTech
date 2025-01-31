@@ -7,18 +7,15 @@ const Skills = () => {
   const [showMore, setShowMore] = useState<boolean>(false);
   const [isIphone, setIsIphone] = useState<boolean>(false);
 
-
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(max-width: 768px)"); // Define phone breakpoint
+    const mediaQuery = window.matchMedia("(max-width: 768px)");
+
     const handleResize = () => setIsIphone(mediaQuery.matches);
-
-    // Set initial value
-    handleResize();
-
-    // Add listener for resize
     mediaQuery.addEventListener("change", handleResize);
 
-    // Cleanup on unmount
+    // Set initial value
+    setIsIphone(mediaQuery.matches);
+
     return () => mediaQuery.removeEventListener("change", handleResize);
   }, []);
 
@@ -28,18 +25,19 @@ const Skills = () => {
 
   const filteredData = useMemo(() => {
     return Data.filter((card) => {
-      if (arrOfOptions[sort] === "Programming") return card.type.includes("Programming");
+      if (arrOfOptions[sort] === "Programming")
+        return card.type.includes("Programming");
       if (arrOfOptions[sort] === "Design") return card.type.includes("Design");
       return true; // "All" case
     });
   }, [sort, arrOfOptions]);
 
-  const toggleSort = useCallback(()=>{
+  const toggleSort = useCallback(() => {
     setSort((prev) => (prev === 2 ? 0 : prev + 1));
   }, []);
 
-  const toggleShowMore = useCallback(()=>{
-    setShowMore((prev)=>!prev);
+  const toggleShowMore = useCallback(() => {
+    setShowMore((prev) => !prev);
   }, []);
 
   return (
@@ -52,10 +50,7 @@ const Skills = () => {
         <div className="heading-container">
           <h1 className="heading">Skills</h1>
         </div>
-        <button
-          onClick={toggleSort}
-          className="sort-button"
-        >
+        <button onClick={toggleSort} className="sort-button">
           {arrOfOptions[sort]} skills <FaFilter />
         </button>
       </div>
@@ -73,7 +68,7 @@ const Skills = () => {
       <a
         className="show-more"
         onClick={toggleShowMore}
-        style={{visibility: isIphone ? "visible" : "hidden"}}
+        style={{ visibility: isIphone ? "visible" : "hidden" }}
       >
         Show {showMore ? "less" : "more"}
       </a>
