@@ -4,10 +4,11 @@ import message from "../assets/colored.json";
 import { Player } from "@lottiefiles/react-lottie-player";
 import Sent from "./Sent";
 import { useSelector } from "react-redux";
+import { RootState } from "../Store/store";
 
 function ContactForm() {
   const [state, handleSubmit] = useForm("xanqwnwq");
-  const theme = useSelector((state: { theme: boolean}  ) => state.theme);
+  const theme = useSelector((state: RootState  ) => state.theme);
 
   if (state.succeeded) {
     return <Sent />;

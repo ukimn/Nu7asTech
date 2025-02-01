@@ -4,8 +4,9 @@ import Skills from "./components/Skills"
 import ContactForm from "./components/ContactUs"
 import Footer from "./components/Footer"
 import { useSelector } from "react-redux"
+import { RootState } from "./Store/store"
 const App = () => {
-  const theme = useSelector((state: { theme: boolean }) => state.theme);
+  const theme = useSelector((state: RootState) => state.theme);
   return (
     <div className="temp" id={`${theme ? "white" : "dark"}`}>
         <Header/>

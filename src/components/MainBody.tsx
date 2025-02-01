@@ -1,9 +1,10 @@
 import img from "../assets/darkMode.webp";
 import lightMode from "../assets/lightMode.webp";
 import { useSelector } from "react-redux";
+import { RootState } from "../Store/store";
 
 const MainBody = () => {
-  const theme = useSelector((state: { theme: "dark" | "light" }) => state.theme);
+  const theme = useSelector((state: RootState) => state.theme);
   return (
     <div className="main-body" id="home">
       <div className="paragraph-container">

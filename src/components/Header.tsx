@@ -4,11 +4,12 @@ import { IoSunnyOutline } from "react-icons/io5";
 import { motion } from "framer-motion";
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleTheme } from "../Store/store";
+import { RootState } from "../Store/store";
 
 const Header = () => {
   const [isOpened, setIsOpened] = useState<boolean>(false);
   const dispatch = useDispatch();
-  const theme = useSelector((state: {theme: boolean}) => state.theme);
+  const theme = useSelector((state: RootState) => state.theme);
   return (
     <>
       <header id={`${theme ? "white" : "dark"}`}>
