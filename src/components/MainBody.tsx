@@ -8,8 +8,6 @@ const MainBody = () => {
   return (
     <div className="main-body" id="home">
       <div className="paragraph-container">
-        <p>You{"'"}re using an old version of our website!</p>
-        <p>go to new <a href="https://nu7as-tech.vercel.app">version</a></p>
         <p
           className="paragraph"
           id={`${theme ? "light-mode-color" : "dark-mode-color"}`}

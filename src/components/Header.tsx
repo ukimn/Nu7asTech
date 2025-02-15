@@ -2,7 +2,7 @@ import { useState } from "react";
 import { IoIosMoon } from "react-icons/io";
 import { IoSunnyOutline } from "react-icons/io5";
 import { motion } from "framer-motion";
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from "react-redux";
 import { toggleTheme } from "../Store/store";
 import { RootState } from "../Store/store";
 
@@ -13,6 +13,21 @@ const Header = () => {
   return (
     <>
       <header id={`${theme ? "white" : "dark"}`}>
+        <div
+          style={{
+            height: "50px",
+            display: "flex",
+            flexDirection: "column",
+            width: "100%",
+            alignItems: "center",
+            justifyContent: "center",
+            backgroundColor: "#FF0000",
+            margin: 0, 
+            padding: 0,
+          }}
+        >
+          <p style={{color: "white", fontWeight: "bolder"}}>You're using an old version of our website! go to new <a href="https://nu7as-tech.vercel.app">version</a></p>
+        </div>
         <nav className="navbar">
           <motion.h1 className="logo">n.w.b</motion.h1>
           <ul
